@@ -1,3 +1,8 @@
+## 1.3.0
+
+- Apply balance changes during play without loading a save.
+- Update only the balance values affected by each change.
+
 # 1.2.1
 
 - Fix unavailable settings when opening Mod Settings before loading a save.
