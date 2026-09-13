@@ -1,7 +1,7 @@
 {
   "name": "Fair Duelist - Customizable Difficulty",
   "version": "1.2.1",
-  "summary": "Customize enemy health, damage, stamina costs and attack delays with absolute percentages. Start from the game's selected difficulty, then edit settings.ini or use the optional Mod Setting Menu.",
+  "summary": "Customize enemy health, damage, stamina costs and attack delays with absolute percentages. Start from the game's selected difficulty, then edit settings.ini or use the Mod Setting Menu.",
   "game": "The Blood of Dawnwalker",
   "gameDomain": "thebloodofdawnwalker",
   "category": "Gameplay",
@@ -25,7 +25,7 @@
   "changelog": [
     "Fix unavailable settings when opening Mod Settings before loading a save."
   ],
-  "requiresModSettingMenu": false,
+  "requiresModSettingMenu": true,
   "requirements": [
     {
       "name": "UE4SS for BoD",
@@ -36,9 +36,15 @@
     {
       "name": "Mod Setting Menu",
       "url": "https://www.nexusmods.com/thebloodofdawnwalker/mods/271",
-      "minimumVersion": "1.0.5.1",
-      "optional": true,
-      "notes": "Optional in-game settings UI. You can edit FairDuelist/settings.ini without it."
+      "minimumVersion": "1.0.6",
+      "optional": false,
+      "notes": "Required for live Apply. UE4SS HookProcessConsoleExec must be 1.",
+      "note": "Required for live Apply. UE4SS HookProcessConsoleExec must be 1."
     }
-  ]
+  ],
+  "liveSettings": {
+    "minimumMenuVersion": "1.0.6",
+    "HookProcessConsoleExec": 1,
+    "apply": "Committed values update gameplay through bounded workers."
+  }
 }

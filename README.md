@@ -2,17 +2,17 @@
 
 [Download the Vortex archive](https://github.com/my-mods/Fair-Duelist-Customizable-Difficulty/raw/refs/heads/main/Fair-Duelist-Customizable-Difficulty.zip)
 
-Customize enemy health, damage, combat stamina costs and enemy attack delays. Start from Story, Fair, Challenging or Duelist, then adjust individual values. You can use the optional Mod Setting Menu or edit settings.ini yourself.
+Customize enemy health, damage, combat stamina costs and enemy attack delays. Start from Story, Fair, Challenging or Duelist, then adjust individual values. You can use Mod Setting Menu or edit settings.ini yourself.
 
 **Requirements**
 
 - **Required: [UE4SS for BoD](https://www.nexusmods.com/thebloodofdawnwalker/mods/283).** Install a version compatible with your game build. This version of Fair Duelist uses Lua for all balance changes.
-- **Optional: [Mod Setting Menu 1.0.5.1 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271).** Adds in-game controls for the same settings.ini file. Fair Duelist works without it.
+- Required: [Mod Setting Menu 1.0.6 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271).
 
 
 **Default values and what the percentages mean**
 
-Your initial balance values match the game's selected RPG and Action difficulties. If those difficulties differ, their respective values are combined. Adjust the values to your liking, then load a save to apply your changes.
+Your initial balance values match the game's selected RPG and Action difficulties. If those difficulties differ, their respective values are combined. Adjust the values to your liking, press Apply to save and use your changes.
 
 **100%** means the unscaled game value, **50%** means half, and **150%** means one and a half times. These percentages are absolute, not additional multipliers on top of the selected difficulty. All six percentage settings accept values from **0 to 500**. Enter 75 for 75%, not 0.75 or 75%.
 
@@ -28,7 +28,7 @@ The balance override starts On and Logging starts Off. **Reset in Mod Settings u
 
 Lower health means enemies take fewer hits; lower damage means you take less damage; lower stamina cost makes combat actions cheaper. **Lower attack-delay percentages let enemies attack more frequently; higher values give longer waits.** Low-health and ranged delays control those specific attack cooldowns. These settings do not change attack animation speed or parry timing. The coordinated-attack switch allows an enemy to attack while another enemy is reacting to a block.
 
-**Change settings without Mod Setting Menu**
+**Editing the settings file**
 
 - Close the game before editing settings.ini.
 - Open the game's installation folder. In Steam, right-click the game, then choose Manage > Browse local files.
@@ -65,9 +65,9 @@ Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; c
 
 **Save the file, restart the game, and load a save to use your changes.** Do not leave values commented out, duplicate keys, or enter values outside their ranges: an obsolete or invalid file is replaced in full with Duelist defaults.
 
-**Change settings with the optional Mod Setting Menu**
+**Change settings with Mod Setting Menu**
 
-From the main menu, open Mod Settings > Fair Duelist - Customizable Difficulty. Adjust the controls, press Apply, and load a save to apply that snapshot to gameplay. Percentage sliders move in 5-point steps. Restore discards unapplied changes; Reset loads Duelist defaults. Logging is the final control.
+From the main menu, open Mod Settings > Fair Duelist - Customizable Difficulty. Adjust the controls, press Apply to save and update gameplay. Percentage sliders move in 5-point steps. Restore discards unapplied changes; Reset loads Duelist defaults. Logging is the final control.
 
 **Choosing another difficulty**
 
@@ -86,3 +86,13 @@ Logging is the final menu control. Leave it Off for normal play; On writes troub
 
 Original game and difficulty data: Rebel Wolves and the respective rights holders. Balance choices and mod: oOCamilleOo. This is an unofficial mod. Includes pinned MIT-licensed [ue4ss-common](https://github.com/my-mods/ue4ss-common) helpers; no separate shared-library installation is required.
 [Source repository](https://github.com/my-mods/Fair-Duelist-Customizable-Difficulty)
+
+## Live settings
+
+Mod Setting Menu 1.0.6 or later is required. Its callback bridge also requires `HookProcessConsoleExec = 1` in `UE4SS-settings.ini`. Manage that loader setting through your Vortex loader configuration; this archive contains no replacement global UE4SS INI.
+
+Settings are prepared when the game starts and are available from the main menu before the first save. Press **Apply** to save and update the active game. Changes made while loading are retained for the next valid player. Restore and Discard leave saved settings unchanged; Reset takes effect after Apply.
+
+Only affected difficulty values are updated, followed by the game's RPG or Action difficulty notification. Confirming a vanilla difficulty choice retains its separate confirmation flow. Disabling the override restores the values it owns.
+
+Logging is the final, sole diagnostic control. It changes immediately; verbose logging is Off by default. Logs are written to `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`. Settings are never polled.

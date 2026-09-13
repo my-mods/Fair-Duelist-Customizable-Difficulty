@@ -1,0 +1,32 @@
+{
+  "version": "1.0.6",
+  "url": "https://www.nexusmods.com/thebloodofdawnwalker/mods/271",
+  "file": "Integration Guide/example/Scripts/dmm_api.lua",
+  "sha256": "6bb667bffc543d1c5c1b36ab6da66c621d6c81c9ee46f94f0f6339cae9cc884c",
+  "permission": "Integration guide explicitly instructs authors to copy this helper unchanged.",
+  "integration": {
+    "minimumMenuVersion": "1.0.6",
+    "hookProcessConsoleExec": 1,
+    "lifetime": "One subscription in the persistent main script.",
+    "configuration": "Startup preparation and accepted save-load reads; no callback I/O.",
+    "commonCommit": "b51434dee720bc000090d4cf387d60f8f6be7e60",
+    "commonLock": "ue4ss-common.lock.json"
+  },
+  "runtimeSources": {
+    "src/Config.lua": "6b06f6f9b0b681d5febfcbce0d05289d9842766557809be0e46b0eec3b1ea68d",
+    "src/ConfigStore.lua": "683905d0a55d0247f62f48a833cadff57cf0440bae899e72d3c65a2cdde392f6",
+    "src/dmm_api.lua": "6bb667bffc543d1c5c1b36ab6da66c621d6c81c9ee46f94f0f6339cae9cc884c",
+    "src/Gameplay.lua": "49f1818ed44013f3f3f99e79ebcbc0bb1b39774adf3c281671759953db268d1d",
+    "src/LegacyConfig.lua": "008161cf9ead2f77f96fd1ccf81dd75a8fa0d705d8ffde6a62cd32ce38bc6bc6",
+    "src/LiveSettings.lua": "b9a69b21d9e6f3647579fbf2964a9a8ff4f811e6c7e43d00b321d6fe147bd93c",
+    "src/main.lua": "cf018f846182aaf09c0465a8991dc0a70119dc9c1244ba1e7fa04345e16d44e5",
+    "src/NativeDifficulty.lua": "236eadfa0cde7811c19765bfe90a9bb00dd18e7d4e231d6b7c7bbe7b5f9cd033",
+    "src/SettingsFile.lua": "ce9d434fec17fd715001f3aea7d913a191e808d7958bedb3e5751dbf795878ca",
+    "src/SettingsSchema.lua": "fac4b0fb6dd42cd4e55564ebc4f7b510b543b56e66127f42c9fb8d3a625f8f0b",
+    "src/SettingsStore.lua": "db597ebcfbe67fd03aa16c3c2eb4129c346975961e4df0481bb70440aa7cfa26",
+    "src/UE4SSCommonDiagnostics.lua": "a6c3de0fb908085654e967a0c38c388dd021d19af7fecc0bb0722a3ea1b20f0e",
+    "src/UE4SSCommonSession.lua": "924272d0246d73759ba57a6ed5f0feea319065a96119d7c9ff7248dd345a09a2",
+    "src/UE4SSDawnwalkerSaveLoad.lua": "17e9cbb70326f536b14ba5512a46ac425e7e1446c90516e826b2092b30465707",
+    "src/UE4SSDawnwalkerSettings.lua": "039b09679eafec2b19cd8f27e3033dec26a52484a7529edbf14f15193ba07ef1"
+  }
+}

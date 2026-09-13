@@ -6,7 +6,9 @@ local prepared, preferences = pcall(function()
     return dofile(directory..'ConfigStore.lua').prepare(directory, Config)
 end)
 if not prepared then report('Settings preparation failed: '..tostring(preferences)) end
-local session = dofile(directory..'UE4SSCommonSession.lua').new(_G, directory, report)
+FairDuelistLiveSettings=dofile(directory..'LiveSettings.lua').new(directory,report)
+if prepared and preferences and preferences.settingsVersion then FairDuelistLiveSettings.seed(preferences) end
+local session = dofile(directory..'UE4SSCommonSession.lua').new(_G, directory, report,{settings=FairDuelistLiveSettings,loadSettings=function() return dofile(directory..'Config.lua').load(directory) end})
 local ok, err = pcall(function()
     FairDuelistNative = dofile(directory..'NativeDifficulty.lua').new(_G, directory, report)
     dofile(directory..'UE4SSDawnwalkerSaveLoad.lua').start(_G, session, directory..'Gameplay.lua', report)

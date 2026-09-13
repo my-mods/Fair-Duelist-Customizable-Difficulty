@@ -68,8 +68,11 @@ function M.new(api, directory, report)
                     return initial
                 end)
                 if not saved then report('Initial settings creation failed: '..tostring(cfg))
-                elseif original and cfg.debugLogging==1 then
+                elseif original then
+                    if FairDuelistLiveSettings then FairDuelistLiveSettings.seed(cfg) end
+                    if cfg.debugLogging==1 then
                     report(string.format('Menu settings ready; attempts=%d settings=%s',job.attempts,path))
+                    end
                 end
             end
             api.ExecuteInGameThreadWithDelay(16,step)
@@ -107,6 +110,7 @@ function M.new(api, directory, report)
                 if job.action then Config.preset(cfg,a,'Action') end
                 local saved,se=Store.save(directory,Config,cfg,original)
                 assert(saved,se)
+                if FairDuelistLiveSettings then FairDuelistLiveSettings.commit(cfg) end
                 if binding then binding(cfg,r,a) end
                 if cfg.debugLogging==1 then report('Vanilla difficulty confirmed; saved '..Config.names[cfg.difficultyPreset+1]..' balance') end
             end)

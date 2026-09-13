@@ -1,10 +1,10 @@
 [size=5][b][color=#E8C88A]Fair Duelist - Customizable Difficulty[/color][/b][/size]
 
-Customize enemy health, damage, combat stamina costs and enemy attack delays. Start from Story, Fair, Challenging or Duelist, then adjust individual values. You can use the optional Mod Setting Menu or edit settings.ini yourself.
+Customize enemy health, damage, combat stamina costs and enemy attack delays. Start from Story, Fair, Challenging or Duelist, then adjust individual values. You can use Mod Setting Menu or edit settings.ini yourself.
 
 [size=4][b][color=#E8C88A]Default values and what the percentages mean[/color][/b][/size]
 
-Your initial balance values match the game's selected RPG and Action difficulties. If those difficulties differ, their respective values are combined. Adjust the values to your liking, then load a save to apply your changes.
+Your initial balance values match the game's selected RPG and Action difficulties. If those difficulties differ, their respective values are combined. Adjust the values to your liking, press Apply to save and use your changes.
 
 [b]100%[/b] means the unscaled game value, [b]50%[/b] means half, and [b]150%[/b] means one and a half times. These percentages are absolute, not additional multipliers on top of the selected difficulty. All six percentage settings accept values from [b]0 to 500[/b]. Enter 75 for 75%, not 0.75 or 75%.
 
@@ -48,9 +48,9 @@ Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; c
 
 [b]Save the file, restart the game, and load a save to use your changes.[/b] Do not leave values commented out, duplicate keys, or enter values outside their ranges: an obsolete or invalid file is replaced in full with Duelist defaults.
 
-[size=3][b][color=#A8D5C2]Change settings with the optional Mod Setting Menu[/color][/b][/size]
+[size=3][b][color=#A8D5C2]Change settings with Mod Setting Menu[/color][/b][/size]
 
-From the main menu, open Mod Settings > Fair Duelist - Customizable Difficulty. Adjust the controls, press Apply, and load a save to apply that snapshot to gameplay. Percentage sliders move in 5-point steps. Restore discards unapplied changes; Reset loads Duelist defaults. Logging is the final control.
+From the main menu, open Mod Settings > Fair Duelist - Customizable Difficulty. Adjust the controls, press Apply to save and update gameplay. Percentage sliders move in 5-point steps. Restore discards unapplied changes; Reset loads Duelist defaults. Logging is the final control.
 
 [size=4][b][color=#E8C88A]Choosing another difficulty[/color][/b][/size]
 
@@ -67,3 +67,8 @@ Confirming a difficulty in the game's settings replaces the corresponding custom
 
 Original game and difficulty data: Rebel Wolves and the respective rights holders. Balance choices and mod: oOCamilleOo. This is an unofficial mod. Includes pinned MIT-licensed [url=https://github.com/my-mods/ue4ss-common]ue4ss-common[/url] helpers; no separate shared-library installation is required.
 [url=https://github.com/my-mods/Fair-Duelist-Customizable-Difficulty]Source repository[/url]
+
+
+[b]Live settings[/b]
+Mod Setting Menu 1.0.6+ is required. Settings are prepared at startup; Apply saves changes and updates gameplay. The loader must use HookProcessConsoleExec = 1, managed through your Vortex loader configuration.
+Only affected difficulty values are updated, followed by the game's RPG or Action difficulty notification. Confirming a vanilla difficulty choice retains its separate confirmation flow. Disabling the override restores the values it owns.
