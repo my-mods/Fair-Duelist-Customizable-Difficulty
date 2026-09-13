@@ -1,3 +1,10 @@
+[size=5][b][color=#E8C88A]Author's Notes[/color][/b][/size]
+
+[size=4][b][color=#E8C88A]1.1.0 Customizable difficulty and enemy aggression[/color][/b][/size]
+Version [b]1.1.0[/b] introduced customizable difficulty settings and enemy aggression.
+
+Details on how to change the settings are in the [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/284?tab=description]mod's description[/url].
+
 [size=4][b][color=#E8C88A]New: change settings while playing[/color][/b][/size]
 
 The latest update lets you change this mod’s settings [b]without reloading your save[/b]. Open [b][color=#A8D5C2]Mod Settings[/color][/b], make your changes and press [b][color=#A8D5C2]Apply[/color][/b] to use them straight away.
