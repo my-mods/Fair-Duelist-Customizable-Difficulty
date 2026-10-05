@@ -6,7 +6,7 @@ Customize enemy health, damage, combat stamina costs and enemy attack delays. St
 
 **Requirements**
 
-- **Required: [UE4SS for BoD](https://www.nexusmods.com/thebloodofdawnwalker/mods/283).** Install a version compatible with your game build. This version of Fair Duelist uses Lua for all balance changes.
+- **Required:** [UE4SS for Dawnwalker by Vercadi](https://www.nexusmods.com/thebloodofdawnwalker/mods/18) **1.3 (RC6) or later**. This version of Fair Duelist uses Lua for all balance changes.
 - Required: [Mod Setting Menu 1.0.6 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271).
 
 
