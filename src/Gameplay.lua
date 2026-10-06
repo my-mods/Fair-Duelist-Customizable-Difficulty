@@ -130,6 +130,9 @@ local function step()
 end
 wake=function(restart,selected)
     if restart then
+        -- An explicit settings/difficulty event is also a readiness retry.
+        -- Cache absence only inside this work window, never across new requests.
+        combatSearched=false
         if job then for _,field in ipairs(job.fields) do dirtyFields[field.key]=true end end
         if not selected then for _,field in ipairs(Config.fields) do dirtyFields[field.key]=true end end
         job=nil; attempts=0

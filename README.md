@@ -99,6 +99,6 @@ Logging is the final, sole diagnostic control. It changes immediately; verbose l
 
 ## Performance and diagnostics
 
-An unavailable combat subsystem is searched once per player session. A subsystem construction event or a new load restores readiness; existing difficulty updates retain their normal notifications.
+An unavailable combat subsystem is searched once per work window. A new settings or difficulty event, subsystem construction, or new load retries readiness; existing difficulty updates retain their normal notifications.
 
 Enable the final **Logging** setting for diagnostics in `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`. Leave it Off for normal play. Timings and offline checks do not establish an in-game frame-rate improvement.
