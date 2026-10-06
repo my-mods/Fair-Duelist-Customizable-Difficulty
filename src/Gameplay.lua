@@ -20,6 +20,7 @@ if cfg.enabled~=1 then return end
 local assetPath='/Game/_Dawnwalker/Combat/DA_DifficultyConfig.DA_DifficultyConfig'
 local asset,combat,pending,resolve,job=nil,nil,false,true,nil
 local combatCandidate
+local combatSearched=false
 local snapshots={}
 local rpgLevel,actionLevel
 local refreshRPG,refreshAction=false,false
@@ -35,6 +36,8 @@ local function sameWorld(o)
 end
 local function combatOwner()
     if sameWorld(combat) then return combat end
+    if combatSearched then return end
+    combatSearched=true
     queries=queries+1
     combat=FindFirstOf('CombatSubsystem')
     if not sameWorld(combat) then combat=nil end
@@ -174,6 +177,6 @@ Session.onClose(function()
 end)
 NotifyOnNewObject('/Script/DogwoodStats.DifficultyConfig',function() resolve=true; wake(true) end)
 NotifyOnNewObject('/Script/DogwoodCombat.CombatSubsystem',function(object)
-    combatCandidate=object; wake(true)
+    combatCandidate=object;combatSearched=false; wake(true)
 end)
 wake(true)

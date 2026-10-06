@@ -1,5 +1,9 @@
 ## 1.3.0
 
+## Unreleased
+
+- Avoid repeated searches for an unavailable combat subsystem within the same player session.
+
 - Apply balance changes during play without loading a save.
 - Update only the balance values affected by each change.
 
