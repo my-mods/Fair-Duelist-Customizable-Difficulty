@@ -60,6 +60,11 @@ Confirming a difficulty in the game's settings replaces the corresponding custom
 [*][b][color=#A8D5C2]Vortex:[/color][/b] Install Fair-Duelist-Customizable-Difficulty.zip through Vortex, enable it and deploy.
 [*][b][color=#A8D5C2]Manual:[/color][/b] Copy the archive's Dawnwalker folder into ...\steamapps\common\The Blood of Dawnwalker\, preserving the folder structure.
 [/list]
+
+[size=4][b][color=#E8C88A]Reporting Bugs and other issues[/color][/b][/size]
+
+If you encounter an issue, set [b]Logging[/b] to [b]On[/b] in this mod’s Mod Setting Menu settings, apply the change, reproduce the issue. Then start either a bug report in the Bugs tab on Nexus (preferred method for me to track things), or at least start a new thread in comments and send me [b]Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log[/b] from your game folder. Do not report unrelated bugs in other people's threads, please, this makes it impossible for me to track issues.
+
 [size=4][b][color=#E8C88A]Credits and source[/color][/b][/size]
 
 Original game and difficulty data: Rebel Wolves and the respective rights holders. Balance choices and mod: oOCamilleOo. This is an unofficial mod. Includes pinned MIT-licensed [url=https://github.com/my-mods/ue4ss-common]ue4ss-common[/url] helpers; no separate shared-library installation is required.
