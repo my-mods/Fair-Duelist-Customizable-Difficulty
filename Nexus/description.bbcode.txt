@@ -14,7 +14,7 @@ The six balance values are: [b]enemy health / enemy damage / combat stamina cost
 [*][b][color=#A8D5C2]Fair:[/color][/b] health 100%, damage 100%, stamina cost 100%; normal delay 140%, low-health delay 120%, ranged delay 140%. Attacks while another enemy blocks: Off.
 [*][b][color=#A8D5C2]Challenging:[/color][/b] health 100%, damage 130%, stamina cost 150%; normal delay 120%, low-health delay 100%, ranged delay 120%. Attacks while another enemy blocks: On.
 [*][b][color=#A8D5C2]Duelist:[/color][/b] health 90%, damage 160%, stamina cost 175%; normal delay 100%, low-health delay 60%, ranged delay 100%. Attacks while another enemy blocks: On.
-[/list]The balance override starts On and Logging starts Off. [b]Reset in Mod Settings uses the Duelist values above.[/b] Outdated or invalid settings files also reset to those defaults.
+[/list]The balance override starts On and Logging starts at Warning. [b]Reset in Mod Settings uses the Duelist values above.[/b] Outdated or invalid settings files also reset to those defaults.
 
 Lower health means enemies take fewer hits; lower damage means you take less damage; lower stamina cost makes combat actions cheaper. [b]Lower attack-delay percentages let enemies attack more frequently; higher values give longer waits.[/b] Low-health and ranged delays control those specific attack cooldowns. These settings do not change attack animation speed or parry timing. The coordinated-attack switch allows an enemy to attack while another enemy is reacting to a block.
 
@@ -38,7 +38,7 @@ attackDelayPercent = 100
 lowHealthAttackDelayPercent = 60
 rangedAttackDelayPercent = 100
 attackDuringBlock = 1
-debugLogging = 0[/code]Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For the three switches, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Leave debugLogging at 0 for normal play. Decimal percentages such as 73.25 are accepted.
+logLevel = 2[/code]Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For the two gameplay switches, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Logging uses 0=Off, 1=Error, 2=Warning (default), 3=Info, 4=Debug. Decimal percentages such as 73.25 are accepted.
 
 [b]Example: shorter fights with Fair damage, stamina costs and attack delays.[/b] Set enemyHealthPercent to 75, enemyDamagePercent and staminaCostPercent to 100, attackDelayPercent and rangedAttackDelayPercent to 140, lowHealthAttackDelayPercent to 120, and attackDuringBlock to 0. Keep enabled at 1. This gives enemies 25% less health than Fair.
 

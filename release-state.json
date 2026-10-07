@@ -74,10 +74,10 @@
         "VortexExtension"
       ],
       "pending": {
-        "impact": "patch",
-        "rationale": "Bound unavailable combat-subsystem discovery and retry on explicit difficulty events; correct shipped dependency documentation.",
+        "impact": "minor",
+        "rationale": "Complete Nexus-baseline delta: bound unavailable combat-subsystem discovery and explicit-event recovery; correct dependency/public documentation; add compatible cumulative five-level Logging with preserving legacy migration and current-menu application.",
         "majorOverride": false,
-        "reviewedInputs": "775cd568bbf5d8064a5fb3c550efe7e6c0b470d822f952116fc3920892737aa3",
+        "reviewedInputs": "ff2e97c7927a5375dc8e869ebd28cdd5c63dc066ca2c39da900f71b3713d9a72",
         "divergenceReviewed": false
       }
     }

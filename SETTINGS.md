@@ -16,7 +16,7 @@ The six balance values are: **enemy health / enemy damage / combat stamina cost 
 - **Duelist:** health 90%, damage 160%, stamina cost 175%; normal delay 100%, low-health delay 60%, ranged delay 100%. Attacks while another enemy blocks: On.
 
 
-The balance override starts On and Logging starts Off. **Reset in Mod Settings uses the Duelist values above.** Outdated or invalid settings files also reset to those defaults.
+The balance override starts On and Logging starts at Warning. **Reset in Mod Settings uses the Duelist values above.** Outdated or invalid settings files also reset to those defaults.
 
 Lower health means enemies take fewer hits; lower damage means you take less damage; lower stamina cost makes combat actions cheaper. **Lower attack-delay percentages let enemies attack more frequently; higher values give longer waits.** Low-health and ranged delays control those specific attack cooldowns. These settings do not change attack animation speed or parry timing. The coordinated-attack switch allows an enemy to attack while another enemy is reacting to a block.
 
@@ -47,11 +47,11 @@ attackDelayPercent = 100
 lowHealthAttackDelayPercent = 60
 rangedAttackDelayPercent = 100
 attackDuringBlock = 1
-debugLogging = 0
+logLevel = 2
 ```
 
 
-Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For the three switches, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Leave debugLogging at 0 for normal play. Decimal percentages such as 73.25 are accepted.
+Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For the two gameplay switches, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Logging uses 0=Off, 1=Error, 2=Warning (default), 3=Info, 4=Debug. Decimal percentages such as 73.25 are accepted.
 
 **Example: shorter fights with Fair damage, stamina costs and attack delays.** Set enemyHealthPercent to 75, enemyDamagePercent and staminaCostPercent to 100, attackDelayPercent and rangedAttackDelayPercent to 140, lowHealthAttackDelayPercent to 120, and attackDuringBlock to 0. Keep enabled at 1. This gives enemies 25% less health than Fair.
 
@@ -78,7 +78,7 @@ Back up your generated preferences before reinstalling or uninstalling. Do not o
 An interrupted conversion retains `settings.ini.absolute-v2.backup`; an interrupted later write retains `settings.ini.absolute-write.backup`. If the primary file is missing, preserve any transaction files and recover the complete matching backup before restarting. The mod refuses to overwrite unresolved backups or a settings file changed during a write.
 
 
-**Logging** is the final menu setting. Leave it Off for normal play; On writes troubleshooting details to `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`.
+**Logging** is the final menu setting. Leave it at Warning for normal play; Debug writes troubleshooting details to `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`.
 
 ## Live Apply
 
@@ -87,3 +87,9 @@ Mod Setting Menu 1.0.6 or later is required. Its callback bridge also requires `
 Settings are prepared when the game starts and are available from the main menu before the first save. Press **Apply** to save and update the active game. Changes made while loading are retained for the next valid player. Restore and Discard leave saved settings unchanged; Reset takes effect after Apply.
 
 Only affected difficulty values are updated, followed by the game's RPG or Action difficulty notification. Confirming a vanilla difficulty choice retains its separate confirmation flow. Disabling the override restores the values it owns.
+
+### Logging levels
+
+The final **Logging** setting offers **Off**, **Error**, **Warning** (default), **Info**, and **Debug**. Levels are cumulative: Error reports stopped features, Warning adds degraded capabilities, Info adds normal lifecycle events, and Debug adds detailed tracing and aggregate timings. Off silences all output from this mod. The numeric INI key is `logLevel` (0–4). Set Logging to Debug, Apply, reproduce an issue, and include `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log` in your report.
+
+An existing logging On choice becomes Debug; an existing Off choice becomes Warning. An explicit new level always takes precedence. Other settings and comments are retained during this startup conversion.

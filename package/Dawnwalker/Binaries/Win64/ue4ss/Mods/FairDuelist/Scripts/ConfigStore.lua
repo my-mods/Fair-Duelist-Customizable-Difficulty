@@ -31,12 +31,28 @@ local function cappedPreferences(Store, File, text, schema, Config)
 end
 function M.load(directory, Config, initial)
     local Store=dofile(directory..'SettingsStore.lua')
+    local originalParse=Store.parse
+    Store.parse=function(text,schema) return originalParse(require('LogSettings').validation(text),schema) end
     local File=dofile(directory..'SettingsFile.lua')
     local schema=dofile(directory..'SettingsSchema.lua')
     local path=Store.path(directory)
     local text,err,code=Store.read(path)
-    local function reject(e) print('[FairDuelist] Settings rejected: '..tostring(e)..'\n'); return {enabled=0},path end
+    local function reject(e) require('ModLog').error('Settings rejected: '..tostring(e)); return {enabled=0},path end
     if text then
+        local completion={{key='logLevel',values={0,1,2,3,4},default=2}}
+        if Store.parse(text,{{key='settingsVersion',values={2}}}) then
+            completion={}
+            for _,row in ipairs(schema) do
+                local copy={};for k,v in pairs(row) do copy[k]=v end
+                copy.max=previousMaximum[row.key] or copy.max
+                completion[#completion+1]=copy
+            end
+        end
+        local _,loggingError,updated=require('LogSettings').complete(text,completion)
+        if not updated then return reject(loggingError) end
+        local saved,saveError=require('LogSettings').replace(path,text,updated)
+        if not saved then return reject(saveError) end
+        text=updated
         local current,e=Store.parse(text,schema)
         if current then current.difficultyPreset=Config.classify(current); return current,path,text end
         local capped,updated,count=cappedPreferences(Store,File,text,schema,Config)
@@ -45,8 +61,8 @@ function M.load(directory, Config, initial)
             if not checked then return reject(ce) end
             local ok,me=File.replace(Store,path,text,updated,rangeBackup,true)
             if not ok then return reject(me) end
-            if capped.debugLogging==1 then
-                print('[FairDuelist] Capped '..count..' saved percentages at 500%; original retained at '..path..rangeBackup..'\n')
+            if capped.logLevel==4 then
+                require('ModLog').debug('[FairDuelist] Capped '..count..' saved percentages at 500%; original retained at '..path..rangeBackup..'\n')
             end
             return capped,path,updated
         end
@@ -75,12 +91,16 @@ end
 -- Fresh installs are initialized separately once native settings are readable.
 function M.prepare(directory, Config)
     local Store=dofile(directory..'SettingsStore.lua')
+    local originalParse=Store.parse
+    Store.parse=function(text,schema) return originalParse(require('LogSettings').validation(text),schema) end
     local text,err,code=Store.read(Store.path(directory))
     if text then return M.load(directory, Config) end
     if code~=2 then error(err or 'Cannot read settings') end
 end
 function M.save(directory, Config, values, expected)
     local Store=dofile(directory..'SettingsStore.lua')
+    local originalParse=Store.parse
+    Store.parse=function(text,schema) return originalParse(require('LogSettings').validation(text),schema) end
     local File=dofile(directory..'SettingsFile.lua')
     local schema=dofile(directory..'SettingsSchema.lua')
     local path=Store.path(directory)

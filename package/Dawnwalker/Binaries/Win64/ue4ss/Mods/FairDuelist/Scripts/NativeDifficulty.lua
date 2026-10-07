@@ -70,8 +70,8 @@ function M.new(api, directory, report)
                 if not saved then report('Initial settings creation failed: '..tostring(cfg))
                 elseif original then
                     if FairDuelistLiveSettings then FairDuelistLiveSettings.seed(cfg) end
-                    if cfg.debugLogging==1 then
-                    report(string.format('Menu settings ready; attempts=%d settings=%s',job.attempts,path))
+                    if cfg.logLevel==4 then
+                    require('ModLog').debug(string.format('Menu settings ready; attempts=%d settings=%s',job.attempts,path))
                     end
                 end
             end
@@ -112,7 +112,7 @@ function M.new(api, directory, report)
                 assert(saved,se)
                 if FairDuelistLiveSettings then FairDuelistLiveSettings.commit(cfg) end
                 if binding then binding(cfg,r,a) end
-                if cfg.debugLogging==1 then report('Vanilla difficulty confirmed; saved '..Config.names[cfg.difficultyPreset+1]..' balance') end
+                if cfg.logLevel==4 then require('ModLog').debug('Vanilla difficulty confirmed; saved '..Config.names[cfg.difficultyPreset+1]..' balance') end
             end)
             if not ok then report('Difficulty reset failed: '..tostring(err)) end
         end)

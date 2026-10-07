@@ -10,5 +10,5 @@ return {
     {key="lowHealthAttackDelayPercent", default=60, min=0, max=500},
     {key="rangedAttackDelayPercent", default=100, min=0, max=500},
     {key="attackDuringBlock", default=1, values={0,1}},
-    {key="debugLogging", default=0, values={0,1}},
+    {key="logLevel", default=2, values={0,1,2,3,4}},
 }

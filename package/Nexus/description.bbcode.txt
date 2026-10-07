@@ -14,7 +14,7 @@ The six balance values are: [b]enemy health / enemy damage / combat stamina cost
 [*][b][color=#A8D5C2]Fair:[/color][/b] health 100%, damage 100%, stamina cost 100%; normal delay 140%, low-health delay 120%, ranged delay 140%. Attacks while another enemy blocks: Off.
 [*][b][color=#A8D5C2]Challenging:[/color][/b] health 100%, damage 130%, stamina cost 150%; normal delay 120%, low-health delay 100%, ranged delay 120%. Attacks while another enemy blocks: On.
 [*][b][color=#A8D5C2]Duelist:[/color][/b] health 90%, damage 160%, stamina cost 175%; normal delay 100%, low-health delay 60%, ranged delay 100%. Attacks while another enemy blocks: On.
-[/list]The balance override starts On and Logging starts Off. [b]Reset in Mod Settings uses the Duelist values above.[/b] Outdated or invalid settings files also reset to those defaults.
+[/list]The balance override starts On and Logging starts at Warning. [b]Reset in Mod Settings uses the Duelist values above.[/b] Outdated or invalid settings files also reset to those defaults.
 
 Lower health means enemies take fewer hits; lower damage means you take less damage; lower stamina cost makes combat actions cheaper. [b]Lower attack-delay percentages let enemies attack more frequently; higher values give longer waits.[/b] Low-health and ranged delays control those specific attack cooldowns. These settings do not change attack animation speed or parry timing. The coordinated-attack switch allows an enemy to attack while another enemy is reacting to a block.
 
@@ -38,7 +38,7 @@ attackDelayPercent = 100
 lowHealthAttackDelayPercent = 60
 rangedAttackDelayPercent = 100
 attackDuringBlock = 1
-debugLogging = 0[/code]Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For the three switches, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Leave debugLogging at 0 for normal play. Decimal percentages such as 73.25 are accepted.
+logLevel = 2[/code]Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For the two gameplay switches, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Logging uses 0=Off, 1=Error, 2=Warning (default), 3=Info, 4=Debug. Decimal percentages such as 73.25 are accepted.
 
 [b]Example: shorter fights with Fair damage, stamina costs and attack delays.[/b] Set enemyHealthPercent to 75, enemyDamagePercent and staminaCostPercent to 100, attackDelayPercent and rangedAttackDelayPercent to 140, lowHealthAttackDelayPercent to 120, and attackDuringBlock to 0. Keep enabled at 1. This gives enemies 25% less health than Fair.
 
@@ -46,7 +46,7 @@ debugLogging = 0[/code]Keep settingsVersion at 2. Leave the generated difficulty
 
 [size=3][b][color=#A8D5C2]Change settings with the Mod Setting Menu[/color][/b][/size]
 
-Mod Setting Menu 1.0.6+ is required. Apply saves changes and updates gameplay. Enable HookProcessConsoleExec = 1 in your Vortex-managed UE4SS configuration.
+Apply saves changes and updates gameplay. Enable HookProcessConsoleExec = 1 in your Vortex-managed UE4SS configuration.
 
 From the main menu, open Mod Settings > Fair Duelist - Customizable Difficulty. Adjust the controls, press Apply to update gameplay. Percentage sliders move in 5-point steps. Restore discards unapplied changes; Reset loads Duelist defaults. Logging is the final control.
 
@@ -69,3 +69,51 @@ If you encounter an issue, set [b]Logging[/b] to [b]Debug[/b] in this mod’s Mo
 
 Original game and difficulty data: Rebel Wolves and the respective rights holders. Balance choices and mod: oOCamilleOo. This is an unofficial mod. Includes pinned MIT-licensed [url=https://github.com/my-mods/ue4ss-common]ue4ss-common[/url] helpers; no separate shared-library installation is required.
 [url=https://github.com/my-mods/Fair-Duelist-Customizable-Difficulty]Source repository[/url]
+
+[size=5][b][color=#E8C88A]My Dawnwalker mods[/color][/b][/size]
+
+[size=4][b][color=#E8C88A]Combat your way[/color][/b][/size]
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/161]Easier Parry and Dodge While Blocking[/url][/color][/b]
+Make parry and perfect-dodge windows longer or shorter to suit your timing.
+[b]Highlights:[/b] Consistent same-side or opposite-side ripostes; dodge while blocking; adjustable dodge invulnerability duration.
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/480]Combat Camera - Configurable[/url][/color][/b]
+Choose how your camera follows enemies and how you select your targets.
+[b]Highlights:[/b] Free, smooth or native tracking; camera-directed or fixed targets; automatic lock on hit; optional center dot.
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/284]Fair Duelist - Customizable Difficulty[/url][/color][/b]
+Build your own difficulty with precise control over combat balance.
+[b]Highlights:[/b] Enemy health and damage; stamina costs; normal, low-health and ranged attack delays; coordinated enemy attacks.
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/448]Health Regen - Configurable[/url][/color][/b]
+Set separate health regeneration rates for your human and vampire forms.
+[b]Highlights:[/b] Optional healing during combat; optional recovery of lost vampire segments; healing stops at the selected limit.
+
+[size=4][b][color=#E8C88A]Controls and exploration[/color][/b][/size]
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/203]Controller Tweaks and Remap[/url][/color][/b]
+Tailor your controller layout and make walking and menu access more comfortable.
+[b]Highlights:[/b] 31 controller settings; wider walking range; short press for Map, long press for Game Hub; controller stutter fixes.
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/449]Press to Gather - Configurable[/url][/color][/b]
+Gather nearby harvestable resources with one keyboard press or controller hold.
+[b]Highlights:[/b] Adjustable 10–200 m range; 14 controller button choices; support for 17 additional wild plant types.
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/711]Less Wildlife[/url][/color][/b]
+Make ordinary boar herds and wolf packs smaller—or larger.
+[b]Highlights:[/b] Population from 10% to 200%; separate boar and wolf switches; quest and named animals keep their normal values.
+
+[size=4][b][color=#E8C88A]Your view, your style[/color][/b][/size]
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/452]Quiet Dawn - Configurable HUD[/url][/color][/b]
+Clear the screen while keeping health and stamina alerts when you need them.
+[b]Highlights:[/b] 17 panels with independent opacity and size; hold-to-peek; configurable combat cues, enemy information and effect icons.
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/721]Style Without Sacrifice - Your Transmogrification Wardrobe[/url][/color][/b]
+Choose your equipment's appearance while keeping its stats.
+[b]Highlights:[/b] Separate day and night outfits; three saved presets; character preview; hide selected equipment; collected or all looks.
+
+[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/694]Night Vision - Configurable[/url][/color][/b]
+See in the dark as a vampire with natural colours or your preferred monochrome blend.
+[b]Highlights:[/b] Independent brightness and colour controls; keyboard or controller toggle; stays enabled through save loading and camera changes.

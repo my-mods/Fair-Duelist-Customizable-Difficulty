@@ -53,7 +53,7 @@ function M.replace(store, path, original, updated, backupSuffix, retainBackup)
     if store.read(path)~=updated then return nil,'Cannot verify settings; original retained at '..backup end
     if not retainBackup then
         local removed,re=os.remove(backup)
-        if not removed then print('[FairDuelist] Saved settings; could not remove transaction backup: '..tostring(re)..'\n') end
+        if not removed then require('ModLog').warning('Saved settings; could not remove transaction backup: '..tostring(re)) end
     end
     return true
 end

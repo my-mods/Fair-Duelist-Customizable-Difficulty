@@ -37,7 +37,7 @@ function M.classify(values)
     return 4
 end
 function M.defaults()
-    return M.preset({settingsVersion=2,enabled=1,debugLogging=0},3)
+    return M.preset({settingsVersion=2,enabled=1,logLevel=2},3)
 end
 function M.load(directory, initial)
     return dofile(directory .. 'ConfigStore.lua').load(directory, M, initial)

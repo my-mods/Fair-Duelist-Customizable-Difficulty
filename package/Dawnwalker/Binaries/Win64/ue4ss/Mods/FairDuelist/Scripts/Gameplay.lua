@@ -9,17 +9,20 @@ local function readConfig() return Config.load(dir,function()
 end) end
 local cfg,path=SaveLoadContext.settings,dir..'../settings.ini'
 if not cfg then cfg,path=readConfig();if FairDuelistLiveSettings and cfg.settingsVersion then FairDuelistLiveSettings.seed(cfg) end end
-local diagnostics=dofile(dir..'UE4SSCommonDiagnostics.lua').new({mutable=true,debugLogging=cfg.debugLogging==1,prefix='[FairDuelist] ',output=function(text) print(text..'\n') end})
+local diagnostics=dofile(dir..'UE4SSCommonDiagnostics.lua').new({mutable=true,debugLogging=cfg.logLevel==4,prefix='[FairDuelist] ',output=function(text) require('ModLog').debug(text) end})
+local Log=require('ModLog')
+Log.setLevel(cfg.logLevel)
 local updateSettings
 Session.onSettings(function(values,changes)
     if values.enabled~=cfg.enabled then Session.restart();return end
-    if values.debugLogging~=cfg.debugLogging then diagnostics.setEnabled(values.debugLogging==1) end
+    if values.logLevel~=cfg.logLevel then diagnostics.setEnabled(values.logLevel==4);Log.setLevel(values.logLevel) end
     if updateSettings then updateSettings(values) else cfg=values end
 end)
 if cfg.enabled~=1 then return end
 local assetPath='/Game/_Dawnwalker/Combat/DA_DifficultyConfig.DA_DifficultyConfig'
 local asset,combat,pending,resolve,job=nil,nil,false,true,nil
 local combatCandidate
+local combatSearched=false
 local snapshots={}
 local rpgLevel,actionLevel
 local refreshRPG,refreshAction=false,false
@@ -35,6 +38,8 @@ local function sameWorld(o)
 end
 local function combatOwner()
     if sameWorld(combat) then return combat end
+    if combatSearched then return end
+    combatSearched=true
     queries=queries+1
     combat=FindFirstOf('CombatSubsystem')
     if not sameWorld(combat) then combat=nil end
@@ -59,7 +64,7 @@ local function begin()
     for _,field in ipairs(Config.fields) do if dirtyFields[field.key] then fields[#fields+1]=field end end
     dirtyFields={}
     job={owner=owner,snapshot=snapshot,fields=fields,cursor=1,changedRPG=refreshRPG,changedAction=refreshAction,
-        started=cfg.debugLogging==1 and os.clock() or nil}
+        started=cfg.logLevel==4 and os.clock() or nil}
 end
 local function step()
     if combatCandidate then
@@ -122,11 +127,14 @@ local function step()
         for _,field in ipairs(current.fields) do dirtyFields[field.key]=true end
         job=nil; wake(false); return
     end
-    if cfg.debugLogging==1 then diagnostics.debug(string.format('Absolute balance applied; preset=%s searches=%d writes=%d elapsed=%.3fs settings=%s',Config.names[cfg.difficultyPreset+1],queries,writes,current.started and os.clock()-current.started or 0,path)) end
+    if cfg.logLevel==4 then diagnostics.debug(string.format('Absolute balance applied; preset=%s searches=%d writes=%d elapsed=%.3fs settings=%s',Config.names[cfg.difficultyPreset+1],queries,writes,current.started and os.clock()-current.started or 0,path)) end
     job=nil; attempts=0
 end
 wake=function(restart,selected)
     if restart then
+        -- An explicit settings/difficulty event is also a readiness retry.
+        -- Cache absence only inside this work window, never across new requests.
+        combatSearched=false
         if job then for _,field in ipairs(job.fields) do dirtyFields[field.key]=true end end
         if not selected then for _,field in ipairs(Config.fields) do dirtyFields[field.key]=true end end
         job=nil; attempts=0
@@ -138,11 +146,11 @@ wake=function(restart,selected)
         local ok,err=pcall(step)
         if not ok then
             attempts=attempts+1
-            if attempts==1 then diagnostics.error('Balance application failed: %s',tostring(err)) end
+            if attempts==1 then Log.warning('Balance application failed; retrying: %s',tostring(err)) end
             if attempts<8 then
                 if job then job.rollback=true; job.cursor=1 end
                 wake(false)
-            else job=nil; diagnostics.error('Balance work stopped after eight failed attempts; waiting for a new load or difficulty event') end
+            else job=nil; Log.error('Balance work stopped after eight failed attempts; waiting for a new load or difficulty event') end
         end
     end)
 end
@@ -156,7 +164,7 @@ updateSettings=function(values)
 end
 local detach=FairDuelistNative.attach(function(values,rpg,action)
     if values.enabled~=cfg.enabled then Session.restart();return end
-    if cfg.debugLogging~=values.debugLogging then diagnostics.setEnabled(values.debugLogging==1) end
+    if cfg.logLevel~=values.logLevel then diagnostics.setEnabled(values.logLevel==4);Log.setLevel(values.logLevel) end
     updateSettings(values)
     if rpgLevel~=rpg then refreshRPG=true end
     if actionLevel~=action then refreshAction=true end
@@ -174,6 +182,6 @@ Session.onClose(function()
 end)
 NotifyOnNewObject('/Script/DogwoodStats.DifficultyConfig',function() resolve=true; wake(true) end)
 NotifyOnNewObject('/Script/DogwoodCombat.CombatSubsystem',function(object)
-    combatCandidate=object; wake(true)
+    combatCandidate=object;combatSearched=false; wake(true)
 end)
 wake(true)

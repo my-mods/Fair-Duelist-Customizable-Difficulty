@@ -5,7 +5,7 @@ function M.new(directory, report)
     local schema=dofile(directory..'SettingsSchema.lua')
     local Config=dofile(directory..'Config.lua')
     local live=Adapter.new({modId="oOCamilleOo_FairDuelist",schema=schema,report=report,
-        derive=function(values) values.difficultyPreset=Config.classify(values) end,
+        derive=function(values) values.difficultyPreset=Config.classify(values);require('ModLog').setLevel(values.logLevel) end,
         ids={
         ["enabled"]="enabled",
         ["enemyHealthPercent"]="enemyHealthPercent",
@@ -15,10 +15,10 @@ function M.new(directory, report)
         ["lowHealthAttackDelayPercent"]="lowHealthAttackDelayPercent",
         ["rangedAttackDelayPercent"]="rangedAttackDelayPercent",
         ["attackDuringBlock"]="attackDuringBlock",
-        ["debugLogging"]="debugLogging"
+        ["logLevel"]="logLevel"
         }})
     live.start(function(id,callback)
-        return dofile(directory..'dmm_api.lua').subscribe(id,callback)
+        return require('ModLog').subscribe(directory,id,callback)
     end)
     return live
 end
