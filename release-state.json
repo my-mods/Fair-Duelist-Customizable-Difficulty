@@ -77,7 +77,7 @@
         "impact": "patch",
         "rationale": "Bound unavailable combat-subsystem discovery and retry on explicit difficulty events; correct shipped dependency documentation.",
         "majorOverride": false,
-        "reviewedInputs": "2d63e85b2e008e3f4142204f458aa7a8bba3a4f6c10be753ba40c4757cc364e0",
+        "reviewedInputs": "775cd568bbf5d8064a5fb3c550efe7e6c0b470d822f952116fc3920892737aa3",
         "divergenceReviewed": false
       }
     }
