@@ -1,12 +1,8 @@
-## Pending development
+## 1.4.0
 
-- Choose how much diagnostic detail to record with five Logging levels, from silent Off to detailed Debug. Warning is the default.
+- Choose Off, Error, Warning, Info or Debug logging; Warning is the default.
 
 ## 1.3.0
-
-## Unreleased
-
-- Avoid repeated searches for an unavailable combat subsystem within the same settings or lifecycle update.
 
 - Apply balance changes during play without loading a save.
 - Update only the balance values affected by each change.

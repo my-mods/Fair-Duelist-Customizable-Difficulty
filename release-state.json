@@ -75,9 +75,9 @@
       ],
       "pending": {
         "impact": "minor",
-        "rationale": "Complete Nexus-baseline delta: bound unavailable combat-subsystem discovery and explicit-event recovery; correct dependency/public documentation; add compatible cumulative five-level Logging with preserving legacy migration and current-menu application.",
+        "rationale": "Complete Nexus-baseline delta: bound unavailable combat-subsystem discovery and explicit-event recovery; correct dependency/public documentation; add compatible cumulative five-level Logging with preserving legacy migration and current-menu application. Release preparation: verified unchanged live Nexus baseline on 2026-10-08; consolidated complete player changelog and preserved published page formatting/history.",
         "majorOverride": false,
-        "reviewedInputs": "ff2e97c7927a5375dc8e869ebd28cdd5c63dc066ca2c39da900f71b3713d9a72",
+        "reviewedInputs": "8f4658f76bc812f5616945b37c66a261f6fc92b5cfd403d4e28a52fabd6189fa",
         "divergenceReviewed": false
       }
     }
