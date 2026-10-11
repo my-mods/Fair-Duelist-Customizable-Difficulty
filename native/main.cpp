@@ -166,7 +166,7 @@ void stop(){
 }
 class Mod final:public CppUserModBase {
 public:
- Mod(){ModName=STR("Fair Duelist - Customizable Difficulty");ModVersion=STR("1.4.0-dev");ModAuthors=STR("my-mods");for(auto& i:watched)i=-1;}
+ Mod(){ModName=STR("Fair Duelist - Customizable Difficulty");ModVersion=STR("1.5.0-dev");ModAuthors=STR("my-mods");for(auto& i:watched)i=-1;}
  void on_lua_start(StringViewType name,Lua& lua,Lua&,Lua&,Lua*)override{
   if(name!=STR("FairDuelist"))return;
   lua.register_function("_FDConfigureAttackersV1",[](const Lua& l){
