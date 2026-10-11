@@ -81,9 +81,9 @@
       ],
       "pending": {
         "impact": "minor",
-        "rationale": "Complete Nexus 1.3.0 baseline delta: bounded combat-subsystem readiness and event recovery; dependency and player documentation corrections; cumulative five-level Logging with preserving migration; configurable 1-8 player coordinated attackers with native request/release handling, safe draining, load recovery, preserving saved-setting upgrades, and native package integration.",
+        "rationale": "Full delta from Nexus 1.3.0: bounded settings readiness, cumulative logging, configurable coordinated attacker slots with native allocation/release hooks, and attack-overlap permission after a successful live bind; original rules restored at Default/1/disable.",
         "majorOverride": false,
-        "reviewedInputs": "4fc835320e629801f909d91a94612f3d62ec3803d34b6a61de07181626de131b",
+        "reviewedInputs": "8893ca595dab51e34f77dd87d8df5c8ef611d5759ce8dec443d5979e621a2209",
         "divergenceReviewed": false
       }
     }

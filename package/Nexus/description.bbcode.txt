@@ -22,7 +22,7 @@
 <br />
 <br />Lower health means enemies take fewer hits; lower damage means you take less damage; lower stamina cost makes combat actions cheaper. [b]Lower attack-delay percentages let enemies attack more frequently; higher values give longer waits.[/b] Low-health and ranged delays control those specific attack cooldowns. These settings do not change attack animation speed or parry timing. The coordinated-attack switch allows an enemy to attack while another enemy is reacting to a block.
 <br />
-<br />[b]Simultaneous attackers[/b] offers Game default or 1–8 coordinated attackers. A chosen limit keeps one main attacker and permits additional helpers; positioning and attack delays still matter. Lowering it lets existing attacks finish. Scripted attacks and attacks outside the coordination system are not capped. Try 3 or 4 for busier combat. This choice is preserved when changing the game difficulty. Restart the game after updating the mod.
+<br />[b]Simultaneous attackers[/b] offers Game default or 1–8 coordinated attackers. A chosen limit keeps one main attacker and permits additional helpers. Limits 2–8 also allow attacks to overlap. Game default restores the original overlap rule; positioning and attack delays still matter. Lowering it lets existing attacks finish. Scripted attacks and attacks outside the coordination system are not capped. Try 3 or 4 for busier combat. This choice is preserved when changing the game difficulty. Restart the game after updating the mod.
 <br />
 <br />[size=3][b][color=#A8D5C2]Edit the settings file manually[/color][/b][/size]
 <br />

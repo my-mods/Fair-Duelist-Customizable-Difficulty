@@ -1,6 +1,6 @@
 -- MIT. Bind only the loaded player's AI board; finite event work, no polling.
 local M={}
-function M.start(context,Session,initial,Log)
+function M.start(context,Session,initial,Log,onApplied)
     local current=initial
     local pending=false
     local attempts=0
@@ -20,7 +20,10 @@ function M.start(context,Session,initial,Log)
     local wake
     local function step()
         pending=false
-        if current.maxSimultaneousAttackers==0 then native(0,0);board=nil;return end
+        if current.maxSimultaneousAttackers==0 then
+            if native(0,0) and onApplied then onApplied(0) end
+            board=nil;return
+        end
         attempts=attempts+1
         local ok,applied=pcall(function()
             local pawn=context.pawn
@@ -35,7 +38,11 @@ function M.start(context,Session,initial,Log)
             if not valid(board) then return false end
             return native(board:GetAddress(),current.maxSimultaneousAttackers)
         end)
-        if ok and applied then attempts=0;return end
+        if ok and applied then
+            attempts=0
+            if onApplied then onApplied(current.maxSimultaneousAttackers) end
+            return
+        end
         if attempts<40 then wake(false,250)
         else Log.warning('Attacker limit readiness exhausted; retry on the next load or settings change%s',ok and '' or (': '..tostring(applied))) end
     end

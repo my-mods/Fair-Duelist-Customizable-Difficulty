@@ -20,7 +20,13 @@ Session.onSettings(function(values,changes)
     if updateSettings then updateSettings(values) else cfg=values end
 end)
 if cfg.enabled~=1 then return end
-updateAttackers=dofile(dir..'Attackers.lua').start(SaveLoadContext,Session,cfg,Log)
+-- Attack capacity and permission to overlap are separate game rules.
+-- Keep this derived field outside Config.fields so native presets cannot reset the limit.
+local fields={}
+for _,field in ipairs(Config.fields) do fields[#fields+1]=field end
+fields[#fields+1]={key='maxSimultaneousAttackers',map='ActionDifficulties',
+    field='bAllowAttackingWhileAnotherNPCIsAttacking',group='Action',boolean=true,overlap=true}
+local appliedLimit=0
 local assetPath='/Game/_Dawnwalker/Combat/DA_DifficultyConfig.DA_DifficultyConfig'
 local asset,combat,pending,resolve,job=nil,nil,false,true,nil
 local combatCandidate
@@ -29,7 +35,7 @@ local snapshots={}
 local rpgLevel,actionLevel
 local refreshRPG,refreshAction=false,false
 local dirtyFields={}
-for _,field in ipairs(Config.fields) do dirtyFields[field.key]=true end
+for _,field in ipairs(fields) do dirtyFields[field.key]=true end
 local attempts,queries,writes=0,0,0
 local function valid(o) return o and o:IsValid() end
 local function sameWorld(o)
@@ -62,10 +68,10 @@ local function begin()
     local address=owner:GetAddress()
     local snapshot=snapshots[address]
     if not snapshot or not valid(snapshot.owner) then snapshot={owner=owner,values={}}; snapshots[address]=snapshot end
-    local fields={}
-    for _,field in ipairs(Config.fields) do if dirtyFields[field.key] then fields[#fields+1]=field end end
+    local selected={}
+    for _,field in ipairs(fields) do if dirtyFields[field.key] then selected[#selected+1]=field end end
     dirtyFields={}
-    job={owner=owner,snapshot=snapshot,fields=fields,cursor=1,changedRPG=refreshRPG,changedAction=refreshAction,
+    job={owner=owner,snapshot=snapshot,fields=selected,cursor=1,changedRPG=refreshRPG,changedAction=refreshAction,
         started=cfg.logLevel==4 and os.clock() or nil}
 end
 local function step()
@@ -97,12 +103,19 @@ local function step()
             return owner[field.map]:Find(index):get()[field.field]
         end
         local function set(value) owner[field.map]:Find(index):get()[field.field]=value end
-        local old=get()
-        assert(type(old)==(field.boolean and 'boolean' or 'number'),'Unexpected difficulty field: '..field.field)
-        if current.snapshot.values[token]==nil then current.snapshot.values[token]=old end
-        local target=desired(field)
-        if current.rollback then target=current.snapshot.values[token] end
-        if Session.change(token,get,set,target) then
+        local changed
+        if field.overlap and (current.rollback or appliedLimit<2) then
+            -- Restore only a value this session still owns; never force a stock false.
+            changed=Session.restore(token)
+        else
+            local old=get()
+            assert(type(old)==(field.boolean and 'boolean' or 'number'),'Unexpected difficulty field: '..field.field)
+            if current.snapshot.values[token]==nil then current.snapshot.values[token]=old end
+            local target=field.overlap or desired(field)
+            if current.rollback then target=current.snapshot.values[token] end
+            changed=Session.change(token,get,set,target)
+        end
+        if changed then
             writes=writes+1
             if field.group=='RPG' then current.changedRPG=true else current.changedAction=true end
         end
@@ -138,7 +151,7 @@ wake=function(restart,selected)
         -- Cache absence only inside this work window, never across new requests.
         combatSearched=false
         if job then for _,field in ipairs(job.fields) do dirtyFields[field.key]=true end end
-        if not selected then for _,field in ipairs(Config.fields) do dirtyFields[field.key]=true end end
+        if not selected then for _,field in ipairs(fields) do dirtyFields[field.key]=true end end
         job=nil; attempts=0
     end
     if pending then return end
@@ -158,12 +171,18 @@ wake=function(restart,selected)
 end
 updateSettings=function(values)
     local changed=false
-    for _,field in ipairs(Config.fields) do
+    for _,field in ipairs(fields) do
         if cfg[field.key]~=values[field.key] then dirtyFields[field.key]=true;changed=true end
     end
     cfg=values
     if changed and (asset or pending) then wake(true,true) end
 end
+updateAttackers=dofile(dir..'Attackers.lua').start(SaveLoadContext,Session,cfg,Log,function(limit)
+    if appliedLimit==limit then return end
+    appliedLimit=limit
+    dirtyFields.maxSimultaneousAttackers=true
+    wake(true,true)
+end)
 local detach=FairDuelistNative.attach(function(values,rpg,action)
     if values.enabled~=cfg.enabled then Session.restart();return end
     if cfg.logLevel~=values.logLevel then diagnostics.setEnabled(values.logLevel==4);Log.setLevel(values.logLevel) end
