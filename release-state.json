@@ -82,9 +82,9 @@
       ],
       "pending": {
         "impact": "minor",
-        "rationale": "Full delta from verified Nexus 1.4.0: new configurable 1–8 coordinated attackers, live Apply, safe preserving upgrade, native ticket allocation/release and overlap permission; retain development channel pending final live combat validation.",
+        "rationale": "Full delta from verified Nexus 1.4.0: configurable 1–8 coordinated attackers with live Apply, preserving settings upgrade, native ticket handling and overlap permission. Approved 1.5.0-dev prerelease; final combat validation remains pending.",
         "majorOverride": false,
-        "reviewedInputs": "2b753eae6440b947a5e01ca6fb565ad7fd5a7784e18f3b71b1dd8d7261018ba0",
+        "reviewedInputs": "f77567224384a567c125de868a4a5db9cf3cc9282fe8925b20820c9f4773a925",
         "divergenceReviewed": false
       }
     }

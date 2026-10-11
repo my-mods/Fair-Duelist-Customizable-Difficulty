@@ -1,4 +1,3 @@
 # Fair Duelist - Customizable Difficulty 1.5.0-dev
 
-- Choose Game default or 1–8 simultaneous coordinated attackers, with live Apply.
-- Limits 2–8 let enemies attack together; Game default restores the original attack rules.
+- Choose how many enemies can attack you at once, from 1 to 8, for more intense group fights.
