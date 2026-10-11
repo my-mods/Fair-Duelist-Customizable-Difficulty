@@ -39,13 +39,15 @@ function M.load(directory, Config, initial)
     local text,err,code=Store.read(path)
     local function reject(e) require('ModLog').error('Settings rejected: '..tostring(e)); return {enabled=0},path end
     if text then
+        local _,attackerError,attackerChecked=require('LogSettings').complete(text,{{key='maxSimultaneousAttackers',values={0,1,2,3,4,5,6,7,8},default=0}})
+        if not attackerChecked then return reject(attackerError) end
         local completion={{key='logLevel',values={0,1,2,3,4},default=2}}
         if Store.parse(text,{{key='settingsVersion',values={2}}}) then
             completion={}
             for _,row in ipairs(schema) do
                 local copy={};for k,v in pairs(row) do copy[k]=v end
                 copy.max=previousMaximum[row.key] or copy.max
-                completion[#completion+1]=copy
+                if row.key~='maxSimultaneousAttackers' then completion[#completion+1]=copy end
             end
         end
         local _,loggingError,updated=require('LogSettings').complete(text,completion)
@@ -53,6 +55,16 @@ function M.load(directory, Config, initial)
         local saved,saveError=require('LogSettings').replace(path,text,updated)
         if not saved then return reject(saveError) end
         text=updated
+        -- A distinct transaction preserves backups from the earlier logging upgrade.
+        if Store.parse(text,{{key='settingsVersion',values={2}}}) then
+            local _,upgradeError,completed=require('LogSettings').complete(text,{{key='maxSimultaneousAttackers',values={0,1,2,3,4,5,6,7,8},default=0}})
+            if not completed then return reject(upgradeError) end
+            if completed~=text then
+                local ok,why=File.replace(Store,path,text,completed,'.before-attacker-limit',true)
+                if not ok then return reject(why) end
+                text=completed
+            end
+        end
         local current,e=Store.parse(text,schema)
         if current then current.difficultyPreset=Config.classify(current); return current,path,text end
         local capped,updated,count=cappedPreferences(Store,File,text,schema,Config)
@@ -76,7 +88,7 @@ function M.load(directory, Config, initial)
     end
     if code~=2 then return reject(err) end
     -- A previous interrupted conversion must never be treated as a fresh install.
-    for _,suffix in ipairs({'.absolute-v2.backup','.absolute-write.backup',rangeBackup,rangeBackup..'.new'}) do
+    for _,suffix in ipairs({'.absolute-v2.backup','.absolute-write.backup','.before-attacker-limit','.before-attacker-limit.new',rangeBackup,rangeBackup..'.new'}) do
         local backup,be,bc=Store.read(path..suffix)
         if backup or bc~=2 then return reject('Recover '..path..suffix..': '..tostring(be or '')) end
     end

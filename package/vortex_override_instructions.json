@@ -7,7 +7,7 @@
   {
     "type": "attribute",
     "key": "version",
-    "value": "1.4.0"
+    "value": "1.4.0-dev"
   },
   {
     "type": "attribute",
@@ -35,7 +35,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -59,7 +62,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -83,7 +89,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -107,7 +116,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -131,7 +143,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -155,7 +170,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -179,7 +197,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -203,7 +224,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -227,7 +251,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -251,7 +278,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -275,7 +305,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -299,7 +332,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -323,7 +359,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -347,7 +386,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -371,7 +413,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -395,7 +440,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -419,7 +467,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -443,7 +494,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -467,7 +521,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -491,7 +548,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -515,7 +575,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -539,7 +602,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -563,7 +629,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -587,7 +656,10 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -611,7 +683,172 @@
       "Nexus/thumbnail.jpg",
       "Nexus/THUMBNAIL-SOURCE.md",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES/MinHook.txt",
+    "key": "fairDuelistReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "Data/Fair-Duelist-PACKAGE-LAYOUT.txt",
+      "Nexus/description.bbcode.txt",
+      "Nexus/metadata.json",
+      "vortex_override_instructions.json",
+      "SETTINGS.md",
+      "LICENSES/FairDuelist-ue4ss-common.txt",
+      "LICENSES/DawnwalkerModMenu-compatibility.txt",
+      "Nexus/banner.jpg",
+      "Nexus/thumbnail.jpg",
+      "Nexus/THUMBNAIL-SOURCE.md",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES\\MinHook.txt",
+    "key": "fairDuelistReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "Data/Fair-Duelist-PACKAGE-LAYOUT.txt",
+      "Nexus/description.bbcode.txt",
+      "Nexus/metadata.json",
+      "vortex_override_instructions.json",
+      "SETTINGS.md",
+      "LICENSES/FairDuelist-ue4ss-common.txt",
+      "LICENSES/DawnwalkerModMenu-compatibility.txt",
+      "Nexus/banner.jpg",
+      "Nexus/thumbnail.jpg",
+      "Nexus/THUMBNAIL-SOURCE.md",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES/Zydis.txt",
+    "key": "fairDuelistReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "Data/Fair-Duelist-PACKAGE-LAYOUT.txt",
+      "Nexus/description.bbcode.txt",
+      "Nexus/metadata.json",
+      "vortex_override_instructions.json",
+      "SETTINGS.md",
+      "LICENSES/FairDuelist-ue4ss-common.txt",
+      "LICENSES/DawnwalkerModMenu-compatibility.txt",
+      "Nexus/banner.jpg",
+      "Nexus/thumbnail.jpg",
+      "Nexus/THUMBNAIL-SOURCE.md",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES\\Zydis.txt",
+    "key": "fairDuelistReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "Data/Fair-Duelist-PACKAGE-LAYOUT.txt",
+      "Nexus/description.bbcode.txt",
+      "Nexus/metadata.json",
+      "vortex_override_instructions.json",
+      "SETTINGS.md",
+      "LICENSES/FairDuelist-ue4ss-common.txt",
+      "LICENSES/DawnwalkerModMenu-compatibility.txt",
+      "Nexus/banner.jpg",
+      "Nexus/thumbnail.jpg",
+      "Nexus/THUMBNAIL-SOURCE.md",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES/Zycore.txt",
+    "key": "fairDuelistReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "Data/Fair-Duelist-PACKAGE-LAYOUT.txt",
+      "Nexus/description.bbcode.txt",
+      "Nexus/metadata.json",
+      "vortex_override_instructions.json",
+      "SETTINGS.md",
+      "LICENSES/FairDuelist-ue4ss-common.txt",
+      "LICENSES/DawnwalkerModMenu-compatibility.txt",
+      "Nexus/banner.jpg",
+      "Nexus/thumbnail.jpg",
+      "Nexus/THUMBNAIL-SOURCE.md",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES\\Zycore.txt",
+    "key": "fairDuelistReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "Data/Fair-Duelist-PACKAGE-LAYOUT.txt",
+      "Nexus/description.bbcode.txt",
+      "Nexus/metadata.json",
+      "vortex_override_instructions.json",
+      "SETTINGS.md",
+      "LICENSES/FairDuelist-ue4ss-common.txt",
+      "LICENSES/DawnwalkerModMenu-compatibility.txt",
+      "Nexus/banner.jpg",
+      "Nexus/thumbnail.jpg",
+      "Nexus/THUMBNAIL-SOURCE.md",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   }
 ]

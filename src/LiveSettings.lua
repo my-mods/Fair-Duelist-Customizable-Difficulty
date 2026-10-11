@@ -15,6 +15,7 @@ function M.new(directory, report)
         ["lowHealthAttackDelayPercent"]="lowHealthAttackDelayPercent",
         ["rangedAttackDelayPercent"]="rangedAttackDelayPercent",
         ["attackDuringBlock"]="attackDuringBlock",
+        ["maxSimultaneousAttackers"]="maxSimultaneousAttackers",
         ["logLevel"]="logLevel"
         }})
     live.start(function(id,callback)

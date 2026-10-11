@@ -1,1 +1,1 @@
-Game-root package: Lua runtime files are under Dawnwalker/Binaries/Win64/ue4ss/Mods. Includes FairDuelist and the DawnwalkerModMenu choices.lua compatibility extension. This note is not a runtime file.
+Game-root package: FairDuelist Lua scripts, Mod Settings definition and native attack-ticket helper are under Dawnwalker/Binaries/Win64/ue4ss/Mods/FairDuelist. Personal settings.ini is generated and is not shipped. This note and release materials do not deploy.

@@ -12,13 +12,15 @@ if not cfg then cfg,path=readConfig();if FairDuelistLiveSettings and cfg.setting
 local diagnostics=dofile(dir..'UE4SSCommonDiagnostics.lua').new({mutable=true,debugLogging=cfg.logLevel==4,prefix='[FairDuelist] ',output=function(text) require('ModLog').debug(text) end})
 local Log=require('ModLog')
 Log.setLevel(cfg.logLevel)
-local updateSettings
+local updateSettings,updateAttackers
 Session.onSettings(function(values,changes)
     if values.enabled~=cfg.enabled then Session.restart();return end
     if values.logLevel~=cfg.logLevel then diagnostics.setEnabled(values.logLevel==4);Log.setLevel(values.logLevel) end
+    if updateAttackers then updateAttackers(values) end
     if updateSettings then updateSettings(values) else cfg=values end
 end)
 if cfg.enabled~=1 then return end
+updateAttackers=dofile(dir..'Attackers.lua').start(SaveLoadContext,Session,cfg,Log)
 local assetPath='/Game/_Dawnwalker/Combat/DA_DifficultyConfig.DA_DifficultyConfig'
 local asset,combat,pending,resolve,job=nil,nil,false,true,nil
 local combatCandidate
@@ -165,6 +167,7 @@ end
 local detach=FairDuelistNative.attach(function(values,rpg,action)
     if values.enabled~=cfg.enabled then Session.restart();return end
     if cfg.logLevel~=values.logLevel then diagnostics.setEnabled(values.logLevel==4);Log.setLevel(values.logLevel) end
+    updateAttackers(values)
     updateSettings(values)
     if rpgLevel~=rpg then refreshRPG=true end
     if actionLevel~=action then refreshAction=true end

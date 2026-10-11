@@ -1,4 +1,4 @@
-# Fair Duelist - Customizable Difficulty 1.3.0
+# Fair Duelist - Customizable Difficulty 1.4.0
 
-- Apply balance changes during play without loading a save.
-- Update only the balance values affected by each change.
+- Choose Game default or 1–8 simultaneous coordinated attackers, with live Apply.
+- Choose Off, Error, Warning, Info or Debug logging; Warning is the default.

@@ -4,7 +4,7 @@
 <br />
 <br />You can see my mod as a better Custom Difficulty, where you can choose specific values instead of something as vague as Story/Fair/Challenging/Duelist. Pick and choose :)
 <br />
-<br />My mod is mostly player facing. If you want to further customize enemies, you can combine it with the [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/251]Bloodbound - Enemy Difficulty Overhaul[/url] which is fully compatible with mine. Change player settings with mine, then enemy settings with Bloodbound.
+<br />My mod is mostly player facing. If you want to further customize enemies, you can combine it with the [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/251]Bloodbound - Enemy Difficulty Overhaul[/url] for additional enemy adjustments. Change player settings with mine, then enemy settings with Bloodbound.
 <br />
 <br />[size=4][b][color=#E8C88A]Default values and what the percentages mean[/color][/b][/size]
 <br />
@@ -21,6 +21,8 @@
 <br />[/list]The balance override starts On and Logging starts at Warning. [b]Reset in Mod Settings uses the Duelist values above.[/b] Outdated or invalid settings files also reset to those defaults.
 <br />
 <br />Lower health means enemies take fewer hits; lower damage means you take less damage; lower stamina cost makes combat actions cheaper. [b]Lower attack-delay percentages let enemies attack more frequently; higher values give longer waits.[/b] Low-health and ranged delays control those specific attack cooldowns. These settings do not change attack animation speed or parry timing. The coordinated-attack switch allows an enemy to attack while another enemy is reacting to a block.
+<br />
+<br />[b]Simultaneous attackers[/b] offers Game default or 1–8 coordinated attackers. A chosen limit keeps one main attacker and permits additional helpers; positioning and attack delays still matter. Lowering it lets existing attacks finish. Scripted attacks and attacks outside the coordination system are not capped. Try 3 or 4 for busier combat. This choice is preserved when changing the game difficulty. Restart the game after updating the mod.
 <br />
 <br />[size=3][b][color=#A8D5C2]Edit the settings file manually[/color][/b][/size]
 <br />
@@ -42,7 +44,8 @@
 <br />lowHealthAttackDelayPercent = 60
 <br />rangedAttackDelayPercent = 100
 <br />attackDuringBlock = 1
-<br />logLevel = 2[/code]Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For enabled and attackDuringBlock, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Choose Off, Error, Warning, Info or Debug. Warning is the default; Off is silent. Debug records detailed troubleshooting information in Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log. In settings.ini, logLevel uses 0–4 in that order. Decimal percentages such as 73.25 are accepted.
+<br />maxSimultaneousAttackers = 0
+<br />logLevel = 2[/code]maxSimultaneousAttackers uses 0 for Game default, or an integer from 1 to 8. Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For enabled and attackDuringBlock, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Choose Off, Error, Warning, Info or Debug. Warning is the default; Off is silent. Debug records detailed troubleshooting information in Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log. In settings.ini, logLevel uses 0–4 in that order. Decimal percentages such as 73.25 are accepted.
 <br />
 <br />[b]Example: shorter fights with Fair damage, stamina costs and attack delays.[/b] Set enemyHealthPercent to 75, enemyDamagePercent and staminaCostPercent to 100, attackDelayPercent and rangedAttackDelayPercent to 140, lowHealthAttackDelayPercent to 120, and attackDuringBlock to 0. Keep enabled at 1. This gives enemies 25% less health than Fair.
 <br />
@@ -56,7 +59,7 @@
 <br />
 <br />[size=4][b][color=#E8C88A]Choosing another difficulty[/color][/b][/size]
 <br />
-<br />Confirming a difficulty in the game's settings replaces the corresponding custom values in settings.ini. A full preset resets all balance values; RPG Difficulty resets health, damage and stamina costs; Action Difficulty resets attack delays and attacks while another enemy blocks. Canceling an unconfirmed preview preserves your saved values. To customize a new starting preset, confirm it first, then make your edits. Other game options, including indicators and parry settings, remain controlled by the game's difficulty settings.
+<br />Confirming a difficulty in the game's settings replaces the corresponding custom values in settings.ini. The simultaneous-attacker choice is preserved. A full preset resets the other balance values; RPG Difficulty resets health, damage and stamina costs; Action Difficulty resets attack delays and attacks while another enemy blocks. Canceling an unconfirmed preview preserves your saved values. To customize a new starting preset, confirm it first, then make your edits. Other game options, including indicators and parry settings, remain controlled by the game's difficulty settings.
 <br />
 <br />[size=4][b][color=#E8C88A]Installation[/color][/b][/size]
 <br />

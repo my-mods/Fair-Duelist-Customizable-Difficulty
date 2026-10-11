@@ -6,7 +6,7 @@ Customize enemy health, damage, combat stamina costs and enemy attack delays. St
 
 **Requirements**
 
-- **Required:** [UE4SS for Dawnwalker by Vercadi](https://www.nexusmods.com/thebloodofdawnwalker/mods/18) **1.3 (RC6) or later**. This version of Fair Duelist uses Lua for all balance changes.
+- **Required:** [UE4SS for Dawnwalker by Vercadi](https://www.nexusmods.com/thebloodofdawnwalker/mods/18) **1.3 (RC6) or later**. Includes a native helper for the simultaneous-attacker option. Restart the game after updating the mod.
 - Required: [Mod Setting Menu 1.0.6 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271).
 
 
@@ -27,6 +27,8 @@ The six balance values are: **enemy health / enemy damage / combat stamina cost 
 The balance override starts On and Logging starts at Warning. **Reset in Mod Settings uses the Duelist values above.** Outdated or invalid settings files also reset to those defaults.
 
 Lower health means enemies take fewer hits; lower damage means you take less damage; lower stamina cost makes combat actions cheaper. **Lower attack-delay percentages let enemies attack more frequently; higher values give longer waits.** Low-health and ranged delays control those specific attack cooldowns. These settings do not change attack animation speed or parry timing. The coordinated-attack switch allows an enemy to attack while another enemy is reacting to a block.
+
+**Simultaneous attackers** offers **Game default** or **1–8** coordinated attackers. Game default preserves the original limit; a chosen number keeps one main attacker and permits additional helpers. This is a maximum, so positioning, enemy decisions and attack delays still affect how many attack. Lowering it lets attacks already underway finish. Scripted attacks and attacks outside the coordination system are not capped. The choice survives changes to the game difficulty. For busier combat, try 3 or 4 and lower the normal attack delay to taste.
 
 **Editing the settings file**
 
@@ -55,11 +57,12 @@ attackDelayPercent = 100
 lowHealthAttackDelayPercent = 60
 rangedAttackDelayPercent = 100
 attackDuringBlock = 1
+maxSimultaneousAttackers = 0
 logLevel = 2
 ```
 
 
-Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For the two gameplay switches, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. Logging uses 0=Off, 1=Error, 2=Warning (default), 3=Info, 4=Debug. Decimal percentages such as 73.25 are accepted.
+Keep settingsVersion at 2. Leave the generated difficultyPreset line in place; changing that number does not select a preset. Choose presets through the game's own difficulty settings. For the two gameplay switches, 1 means On and 0 means Off. Setting enabled to 0 disables the custom balance override. maxSimultaneousAttackers uses 0 for Game default, or an integer from 1 to 8. Logging uses 0=Off, 1=Error, 2=Warning (default), 3=Info, 4=Debug. Decimal percentages such as 73.25 are accepted.
 
 **Example: shorter fights with Fair damage, stamina costs and attack delays.** Set enemyHealthPercent to 75, enemyDamagePercent and staminaCostPercent to 100, attackDelayPercent and rangedAttackDelayPercent to 140, lowHealthAttackDelayPercent to 120, and attackDuringBlock to 0. Keep enabled at 1. This gives enemies 25% less health than Fair.
 
@@ -71,7 +74,7 @@ From the main menu, open Mod Settings > Fair Duelist - Customizable Difficulty. 
 
 **Choosing another difficulty**
 
-Confirming a difficulty in the game's settings replaces the corresponding custom values in settings.ini. A full preset resets all balance values; RPG Difficulty resets health, damage and stamina costs; Action Difficulty resets attack delays and attacks while another enemy blocks. Canceling an unconfirmed preview preserves your saved values. To customize a new starting preset, confirm it first, then make your edits. Other game options, including indicators and parry settings, remain controlled by the game's difficulty settings.
+Confirming a difficulty in the game's settings replaces the corresponding custom values in settings.ini. The simultaneous-attacker choice is preserved. A full preset resets the other balance values; RPG Difficulty resets health, damage and stamina costs; Action Difficulty resets attack delays and attacks while another enemy blocks. Canceling an unconfirmed preview preserves your saved values. To customize a new starting preset, confirm it first, then make your edits. Other game options, including indicators and parry settings, remain controlled by the game's difficulty settings.
 
 **Installation**
 
