@@ -8,21 +8,21 @@
       "packageFormat": 1,
       "baseline": {
         "kind": "nexus",
-        "version": "1.5.0-dev",
-        "normalizedVersion": "1.5.0",
-        "sourceCommit": "07f29482fd031501ead502cfe661337cb57726ac",
-        "sourceTag": "v1.5.0-dev",
-        "archiveSha256": "bdc1d3bda9e1dcff981b2c936de5ca03b82ddfaf6640e22298d3a15d58a3f406",
-        "verifiedAt": "2026-10-11T16:45:31.866Z",
+        "version": "1.4.0",
+        "normalizedVersion": "1.4.0",
+        "sourceCommit": "f13e12b9f599c26d478066a708e284a9c434b6bb",
+        "sourceTag": null,
+        "archiveSha256": "f9e832bfe9031887da1cfff02229e7ddb0b7cd00f8485d30a821364ffc577e0d",
+        "verifiedAt": "2026-10-11T16:28:19.8774587Z",
         "nexus": {
           "game": "thebloodofdawnwalker",
           "pageId": "284",
           "modId": "41742787150108",
           "fileChainId": "7925073",
-          "versionId": "41742787153075",
-          "siteFileId": "3251"
+          "versionId": "41742787152996",
+          "siteFileId": "3172"
         },
-        "sourceFingerprint": "f77567224384a567c125de868a4a5db9cf3cc9282fe8925b20820c9f4773a925"
+        "sourceFingerprint": "8f4658f76bc812f5616945b37c66a261f6fc92b5cfd403d4e28a52fabd6189fa"
       },
       "bindings": [
         {
@@ -81,10 +81,10 @@
         "VortexExtension"
       ],
       "pending": {
-        "impact": "none",
-        "rationale": "No remaining package delta from the verified Nexus 1.5.0-dev prerelease; published original and GitHub asset match the approved archive.",
+        "impact": "minor",
+        "rationale": "Complete release delta from proper Nexus 1.4.0: configurable simultaneous attackers, release version 1.5.0 and matching rebuilt native helper; correct erroneous development upload.",
         "majorOverride": false,
-        "reviewedInputs": "f77567224384a567c125de868a4a5db9cf3cc9282fe8925b20820c9f4773a925",
+        "reviewedInputs": "4f8241a8c97045a7e84a9e49363c3a5ddf30f42de227c4b46aa90348a9e15b28",
         "divergenceReviewed": false
       },
       "publication": {
