@@ -84,7 +84,7 @@
         "impact": "patch",
         "rationale": "Patch 1.1 maintenance: corrected RPG/Action setting IDs, all five difficulty rows, asset-verified Story/Forgiving mappings preserving personal percentages and combat assistance, relocated validated allocator hint, matching rebuilt native helper and player documentation.",
         "majorOverride": false,
-        "reviewedInputs": "4ca7f2f5575941b83193de2ed796afef69871bf4a15d4b5cf9a43cfa09d9b710",
+        "reviewedInputs": "84aa566f68c147cd8c64c93e97a2360f18ad2651dba91b437844f07056745901",
         "divergenceReviewed": false
       },
       "publication": {
