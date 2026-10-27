@@ -81,10 +81,10 @@
         "VortexExtension"
       ],
       "pending": {
-        "impact": "none",
-        "rationale": "Matches the verified Nexus release.",
+        "impact": "patch",
+        "rationale": "Patch 1.1 maintenance: corrected RPG/Action setting IDs, all five difficulty rows, asset-verified Story/Forgiving mappings preserving personal percentages and combat assistance, relocated validated allocator hint, matching rebuilt native helper and player documentation.",
         "majorOverride": false,
-        "reviewedInputs": "4f8241a8c97045a7e84a9e49363c3a5ddf30f42de227c4b46aa90348a9e15b28",
+        "reviewedInputs": "4ca7f2f5575941b83193de2ed796afef69871bf4a15d4b5cf9a43cfa09d9b710",
         "divergenceReviewed": false
       },
       "publication": {

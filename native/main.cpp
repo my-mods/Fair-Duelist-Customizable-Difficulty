@@ -100,8 +100,8 @@ std::array<void*,3> hooked{};
 uintptr_t function(const wchar_t* path){auto fn=UObjectGlobals::StaticFindObject<UFunction*>(nullptr,nullptr,path);if(!fn||!fn->HasAnyFunctionFlags(FUNC_Native))throw std::runtime_error("required reflected ticket function is unavailable");return reinterpret_cast<uintptr_t>(fn->GetFuncPtr());}
 size_t extent(uintptr_t fn){DWORD64 base{};auto row=RtlLookupFunctionEntry(fn,&base,nullptr);if(!row||base+row->BeginAddress!=fn)throw std::runtime_error("ticket hook is not a native function entry");return row->EndAddress-row->BeginAddress;}
 uintptr_t discoverRequest(uintptr_t image){
- auto hint=image+0x5c8c0c0;
- if(TicketContract::accessible(reinterpret_cast<void*>(hint),0x220,true)&&TicketContract::request(hint))return hint;
+ auto hint=image+0x5ec0c84;
+ try{if(TicketContract::accessible(reinterpret_cast<void*>(hint),0x220,true)&&TicketContract::request(hint))return hint;}catch(const std::runtime_error&){}
  // A location hint is not a build gate. Re-discover after code relocation;
  // candidate bytes merely reduce decoding, semantic requirements decide support.
  auto dos=reinterpret_cast<IMAGE_DOS_HEADER*>(image);auto nt=reinterpret_cast<IMAGE_NT_HEADERS*>(image+dos->e_lfanew);auto sec=IMAGE_FIRST_SECTION(nt);uintptr_t found{};
@@ -166,7 +166,7 @@ void stop(){
 }
 class Mod final:public CppUserModBase {
 public:
- Mod(){ModName=STR("Fair Duelist - Customizable Difficulty");ModVersion=STR("1.5.0");ModAuthors=STR("my-mods");for(auto& i:watched)i=-1;}
+ Mod(){ModName=STR("Fair Duelist - Customizable Difficulty");ModVersion=STR("1.5.1-dev");ModAuthors=STR("my-mods");for(auto& i:watched)i=-1;}
  void on_lua_start(StringViewType name,Lua& lua,Lua&,Lua&,Lua*)override{
   if(name!=STR("FairDuelist"))return;
   lua.register_function("_FDConfigureAttackersV1",[](const Lua& l){

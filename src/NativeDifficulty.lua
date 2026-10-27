@@ -1,6 +1,7 @@
 -- Confirmed vanilla difficulty changes reset the absolute balance values. MIT.
--- Verified native signatures: Steam build 25232147, RebelSettings.
+-- Verified native signatures: Steam build 25915545, RebelSettings.
 local M = {}
+local RPG_SETTING,ACTION_SETTING=70,71 -- ERebelSetting, patch 1.1
 function M.new(api, directory, report)
     local Config=api.dofile(directory..'Config.lua')
     local Store=api.dofile(directory..'ConfigStore.lua')
@@ -14,9 +15,9 @@ function M.new(api, directory, report)
     local function valid(o) return o and o:IsValid() end
     local function levels(settings)
         local rpg, action={},{}
-        assert(settings:GetSettingAsDifficulty(69,rpg) and settings:GetSettingAsDifficulty(70,action),'Cannot read current difficulty')
+        assert(settings:GetSettingAsDifficulty(RPG_SETTING,rpg) and settings:GetSettingAsDifficulty(ACTION_SETTING,action),'Cannot read current difficulty')
         local r,a=rpg.OutDifficulty,action.OutDifficulty
-        assert(type(r)=='number' and r%1==0 and r>=0 and r<=3 and type(a)=='number' and a%1==0 and a>=0 and a<=3,'Invalid current difficulty')
+        assert(type(r)=='number' and r%1==0 and r>=0 and r<=4 and type(a)=='number' and a%1==0 and a>=0 and a<=4,'Invalid current difficulty')
         return r,a
     end
     local function settingsObject(window)
@@ -46,7 +47,7 @@ function M.new(api, directory, report)
                 job.attempts=job.attempts+1
                 local ok,r,a=pcall(function()
                     local settings=settingsObject(job)
-                    assert(not settings:IsSettingUnconfirmed(69) and not settings:IsSettingUnconfirmed(70),
+                    assert(not settings:IsSettingUnconfirmed(RPG_SETTING) and not settings:IsSettingUnconfirmed(ACTION_SETTING),
                         'Waiting for confirmed difficulty settings')
                     return levels(settings)
                 end)
@@ -64,7 +65,7 @@ function M.new(api, directory, report)
                 done=true; window=nil
                 local saved,cfg,path,original=pcall(Store.load,directory,Config,function()
                     local initial=Config.defaults()
-                    Config.preset(initial,r,'RPG'); Config.preset(initial,a,'Action')
+                    Config.nativePreset(initial,r,'RPG'); Config.nativePreset(initial,a,'Action')
                     return initial
                 end)
                 if not saved then report('Initial settings creation failed: '..tostring(cfg))
@@ -102,12 +103,12 @@ function M.new(api, directory, report)
                 local r,a=levels(job.settings)
                 local cfg,path,original=Store.load(directory,Config,function()
                     local initial=Config.defaults()
-                    Config.preset(initial,r,'RPG'); Config.preset(initial,a,'Action')
+                    Config.nativePreset(initial,r,'RPG'); Config.nativePreset(initial,a,'Action')
                     return initial
                 end)
                 if not original then error('Cannot reset invalid settings: '..path) end
-                if job.rpg then Config.preset(cfg,r,'RPG') end
-                if job.action then Config.preset(cfg,a,'Action') end
+                if job.rpg then Config.nativePreset(cfg,r,'RPG') end
+                if job.action then Config.nativePreset(cfg,a,'Action') end
                 local saved,se=Store.save(directory,Config,cfg,original)
                 assert(saved,se)
                 if FairDuelistLiveSettings then FairDuelistLiveSettings.commit(cfg) end
@@ -131,8 +132,8 @@ function M.new(api, directory, report)
             confirmation=nil
             if not valid(settings) then return end
             local same=valid(preview) and preview:GetAddress()==settings:GetAddress()
-            local rpg=same or settings:IsSettingUnconfirmed(69)
-            local action=same or settings:IsSettingUnconfirmed(70)
+            local rpg=same or settings:IsSettingUnconfirmed(RPG_SETTING)
+            local action=same or settings:IsSettingUnconfirmed(ACTION_SETTING)
             if rpg or action then confirmation={settings=settings,rpg=rpg,action=action} end
         end,function(context,_,result)
             local request=confirmation; confirmation=nil

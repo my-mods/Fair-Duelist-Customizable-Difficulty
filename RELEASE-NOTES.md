@@ -1,3 +1,3 @@
-# Fair Duelist - Customizable Difficulty 1.5.0
+# Fair Duelist - Customizable Difficulty 1.5.1-dev
 
-- Choose how many enemies can attack you at once, from 1 to 8, for more intense group fights.
+- Restore custom balance and difficulty switching on Dawnwalker patch 1.1, including Story, Forgiving and Duelist.

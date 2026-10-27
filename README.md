@@ -2,7 +2,7 @@
 
 [Download the Vortex archive](https://github.com/my-mods/Fair-Duelist-Customizable-Difficulty/raw/refs/heads/main/Fair-Duelist-Customizable-Difficulty.zip)
 
-Customize enemy health, damage, combat stamina costs and enemy attack delays. Start from Story, Fair, Challenging or Duelist, then adjust individual values. You can use Mod Setting Menu or edit settings.ini yourself.
+Customize enemy health, damage, combat stamina costs and enemy attack delays. Start from Story, Forgiving, Fair, Challenging or Duelist, then adjust individual values. You can use Mod Setting Menu or edit settings.ini yourself.
 
 **Requirements**
 
@@ -18,7 +18,8 @@ Your initial balance values match the game's selected RPG and Action difficultie
 
 The six balance values are: **enemy health / enemy damage / combat stamina cost / normal attack delay / low-health attack delay / ranged attack delay**.
 
-- **Story:** health 50%, damage 40%, stamina cost 50%; normal, low-health and ranged attack delays 200%. Attacks while another enemy blocks: Off.
+- **Story:** health 50%, damage 40%, stamina cost 20%; normal, low-health and ranged attack delays 200%. Attacks while another enemy blocks: Off.
+- **Forgiving:** health 50%, damage 40%, stamina cost 50%; normal, low-health and ranged attack delays 200%. Attacks while another enemy blocks: Off.
 - **Fair:** health 100%, damage 100%, stamina cost 100%; normal delay 140%, low-health delay 120%, ranged delay 140%. Attacks while another enemy blocks: Off.
 - **Challenging:** health 100%, damage 130%, stamina cost 150%; normal delay 120%, low-health delay 100%, ranged delay 120%. Attacks while another enemy blocks: On.
 - **Duelist:** health 90%, damage 160%, stamina cost 175%; normal delay 100%, low-health delay 60%, ranged delay 100%. Attacks while another enemy blocks: On.

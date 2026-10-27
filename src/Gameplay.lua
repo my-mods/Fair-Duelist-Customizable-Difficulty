@@ -4,7 +4,7 @@ local Config=dofile(dir..'Config.lua')
 local function readConfig() return Config.load(dir,function()
     local initial=Config.defaults()
     local rpg,action=FairDuelistNative.observe()
-    Config.preset(initial,rpg,'RPG'); Config.preset(initial,action,'Action')
+    Config.nativePreset(initial,rpg,'RPG'); Config.nativePreset(initial,action,'Action')
     return initial
 end) end
 local cfg,path=SaveLoadContext.settings,dir..'../settings.ini'
@@ -92,7 +92,7 @@ local function step()
     -- At most four scalar transactions per callback; stop after 0.5 ms between them.
     for unit=1,4 do
         if unit>1 and os.clock()-started>=0.0005 then break end
-        if current.cursor>4*#current.fields then break end
+        if current.cursor>5*#current.fields then break end
         processed=true
         local index=math.floor((current.cursor-1)/#current.fields)
         local field=current.fields[(current.cursor-1)%#current.fields+1]
@@ -121,7 +121,7 @@ local function step()
         end
         current.cursor=current.cursor+1
     end
-    if current.cursor<=4*#current.fields then wake(false); return end
+    if current.cursor<=5*#current.fields then wake(false); return end
     if processed and (current.changedRPG or current.changedAction) then wake(false);return end
     -- Native setters notify existing combat actors; run the two notifications on separate frames.
     if current.changedRPG or current.changedAction then

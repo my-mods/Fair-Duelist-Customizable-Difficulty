@@ -1,6 +1,6 @@
 {
   "name": "Fair Duelist - Customizable Difficulty",
-  "version": "1.5.0",
+  "version": "1.5.1-dev",
   "summary": "Customize enemy health, damage, stamina costs, attack delays and the number of coordinated attackers. Start from the game difficulty, then adjust your settings.",
   "game": "The Blood of Dawnwalker",
   "gameDomain": "thebloodofdawnwalker",
@@ -16,7 +16,7 @@
   "file": {
     "displayName": "Fair Duelist - Customizable Difficulty",
     "filename": "Fair-Duelist-Customizable-Difficulty.zip",
-    "version": "1.5.0",
+    "version": "1.5.1-dev",
     "category": "main",
     "description": "Choose how many enemies can attack you at once, from 1 to 8, for more intense group fights.",
     "allowModManagerDownload": true,

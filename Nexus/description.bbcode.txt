@@ -1,8 +1,8 @@
 [size=5][b][color=#E8C88A]Fair Duelist - Customizable Difficulty[/color][/b][/size]
 <br />
-<br />Customize enemy health, damage, combat stamina costs and enemy attack delays. Start from Story, Fair, Challenging or Duelist, then adjust individual values. You can use the Mod Setting Menu or edit settings.ini yourself.
+<br />Customize enemy health, damage, combat stamina costs and enemy attack delays. Start from Story, Forgiving, Fair, Challenging or Duelist, then adjust individual values. You can use the Mod Setting Menu or edit settings.ini yourself.
 <br />
-<br />You can see my mod as a better Custom Difficulty, where you can choose specific values instead of something as vague as Story/Fair/Challenging/Duelist. Pick and choose :)
+<br />You can see my mod as a better Custom Difficulty, where you can choose specific values instead of something as vague as Story/Forgiving/Fair/Challenging/Duelist. Pick and choose :)
 <br />
 <br />My mod is mostly player facing. If you want to further customize enemies, you can combine it with the [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/251]Bloodbound - Enemy Difficulty Overhaul[/url] which is fully compatible with mine. Change player settings with mine, then enemy settings with Bloodbound.
 <br />
@@ -14,7 +14,8 @@
 <br />
 <br />The six balance values are: [b]enemy health / enemy damage / combat stamina cost / normal attack delay / low-health attack delay / ranged attack delay[/b].
 <br />[list]
-<br />[*][b][color=#A8D5C2]Story:[/color][/b] health 50%, damage 40%, stamina cost 50%; normal, low-health and ranged attack delays 200%. Attacks while another enemy blocks: Off.[/*]
+<br />[*][b][color=#A8D5C2]Story:[/color][/b] health 50%, damage 40%, stamina cost 20%; normal, low-health and ranged attack delays 200%. Attacks while another enemy blocks: Off.[/*]
+<br />[*][b][color=#A8D5C2]Forgiving:[/color][/b] health 50%, damage 40%, stamina cost 50%; normal, low-health and ranged attack delays 200%. Attacks while another enemy blocks: Off.[/*]
 <br />[*][b][color=#A8D5C2]Fair:[/color][/b] health 100%, damage 100%, stamina cost 100%; normal delay 140%, low-health delay 120%, ranged delay 140%. Attacks while another enemy blocks: Off.[/*]
 <br />[*][b][color=#A8D5C2]Challenging:[/color][/b] health 100%, damage 130%, stamina cost 150%; normal delay 120%, low-health delay 100%, ranged delay 120%. Attacks while another enemy blocks: On.[/*]
 <br />[*][b][color=#A8D5C2]Duelist:[/color][/b] health 90%, damage 160%, stamina cost 175%; normal delay 100%, low-health delay 60%, ranged delay 100%. Attacks while another enemy blocks: On.[/*]

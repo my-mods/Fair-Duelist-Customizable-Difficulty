@@ -9,13 +9,14 @@ M.fields = {
     {key='rangedAttackDelayPercent', map='ActionDifficulties', field='HelperRangedAttackCooldownMultiplier', group='Action', max=500},
     {key='attackDuringBlock', map='ActionDifficulties', field='bAllowAttackingWhileAnotherNPCIsInBlockReaction', group='Action', boolean=true},
 }
-M.names = {'Story','Fair','Challenging','Duelist','Custom'}
--- Stock DA_DifficultyConfig, Steam build 25232147. Percentages of unscaled values.
+M.names = {'Forgiving','Fair','Challenging','Duelist','Custom','Story'}
+-- Stock DA_DifficultyConfig, patch 1.1, Steam build 25915545. Percentages of unscaled values.
 M.presets = {
     {50,40,50,200,200,200,0},
     {100,100,100,140,120,140,0},
     {100,130,150,120,100,120,1},
     {90,160,175,100,60,100,1},
+    [6]={50,40,20,200,200,200,0}, -- Keep existing saved classification IDs.
 }
 function M.preset(values, id, group)
     local row = assert(M.presets[id+1], 'Unknown difficulty preset')
@@ -25,8 +26,15 @@ function M.preset(values, id, group)
     values.difficultyPreset = M.classify(values)
     return values
 end
+-- Native IDs changed when Forgiving was inserted. Saved classification IDs do not.
+function M.nativePreset(values, id, group)
+    local preset=({[0]=5,[1]=0,[2]=1,[3]=2,[4]=3})[id]
+    assert(preset~=nil,'Unknown native difficulty')
+    return M.preset(values,preset,group)
+end
 function M.classify(values)
-    for id, row in ipairs(M.presets) do
+    for _, id in ipairs({1,2,3,4,6}) do
+        local row=M.presets[id]
         local same = true
         for i, field in ipairs(M.fields) do
             local value = values[field.key]
